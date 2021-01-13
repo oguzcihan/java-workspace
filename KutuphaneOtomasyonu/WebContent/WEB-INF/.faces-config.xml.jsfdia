@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="96,60,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="dogru::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="dogru" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="yanlis::#Error.xhtml" NAME="output1"
+    PATH="/Error.xhtml" TARGET="rules:#Error.xhtml" TITLE="yanlis" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="272,56,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#Error.xhtml" PATH="/Error.xhtml"
+  SHAPE="249,158,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#Error.xhtml:0" NAME="item"
+   PATH="/Error.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="geri::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="geri" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

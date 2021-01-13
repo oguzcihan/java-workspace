@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<f:view>
+		<h:form>
+			<p:growl id="messages" />
+			<p:menubar>
+				<f:facet name="options">
+					<p:commandButton value="Kutuphane Otomasyonu" action="#{ogrenciView.anasayfa()}"
+						icon="pi pi-home" />
+				</f:facet>
+
+				<p:menuitem value="Anasayfa" action="#{ogrenciView.anasayfa()}"
+					icon="pi pi-times" />
+
+				<p:submenu label="Öğrenci İşlemler" icon="pi pi-pencil">
+					<p:menuitem value="Öğrenci Kayıt" action="#{ogrenciView.kayitaGit()}" 
+						icon="pi pi-angle-double-left" />
+					
+				</p:submenu>
+				<p:submenu label="Kitap İşlemler" icon="pi pi-pencil">
+					<p:menuitem value="Kitap Kayıt" action="#{kitapView.kayitaGit()}"
+						icon="pi pi-angle-double-left" />
+					<p:menuitem value="Kitap Arama" action="#{arama.kitapArama()}"
+						icon="pi pi-angle-double-right" />
+				</p:submenu>
+				<p:submenu label="Personel İşlemleri" icon="pi pi-pencil">
+					<p:menuitem value="Müdür Kayıt" action="#{mudurView.mudureGit()}"
+						icon="pi pi-angle-double-left" />
+					
+				</p:submenu>
+			
+				<p:menuitem value="İletişim" action="#{arama.iletisim()}"
+					icon="pi pi-times" />
+
+			</p:menubar>
+
+		</h:form>
+	</f:view>
+</body>
+</html>

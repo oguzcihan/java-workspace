@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+<f:view>
+<ui:insert name="navbar">
+			<ui:include src="/template/navbar.xhtml" />
+		</ui:insert>
+		<br /><br />
+			<h:form>
+				<p:panelGrid columns="2" >
+										
+					KitapAdi:<h:inputText value="#{kitapView.kitapKayit.kitapAdi}" />
+					Yazar Adı:<h:inputText value="#{kitapView.kitapKayit.yazar.ad}" />
+					Yazar Soyad:<h:inputText value="#{kitapView.kitapKayit.yazar.soyad}" />
+					
+					
+					<h:commandButton action="#{kitapView.kaydet()}" value="Kaydet" rendered="#{kitapView.kitapKayit.kitapAdi==null}"/>
+					<h:commandButton action="#{kitapView.duzenle()}" value="Güncelle" rendered="#{kitapView.kitapKayit.kitapAdi!=null}"/>
+					<h:commandButton action="#{kitapView.anasayfa()}" value="Geri Dön" />
+					
+					
+				</p:panelGrid>
+				<br />
+
+				<p:dataTable value="#{kitapView.kayitListesi}" var="cls">
+		<f:facet name="header">Kayıt Listesi</f:facet>
+					<p:column>
+						<f:facet name="header">İşlemler</f:facet>
+						<h:commandButton action="#{kitapView.sil()}" value="Sil">
+							<f:setPropertyActionListener value="#{cls}"
+								target="#{kitapView.kitapKayit}" />
+						</h:commandButton>
+						<h:commandButton value="Seç">
+							<f:setPropertyActionListener value="#{cls}"
+								target="#{kitapView.kitapKayit}" />
+						</h:commandButton>
+					</p:column>
+					<p:column>
+						<f:facet name="header">Kitap Adı</f:facet>
+						<h:outputText value="#{cls.kitapAdi}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">Yazar Adı</f:facet>
+						<h:outputText value="#{cls.yazar.ad}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">Yazar Soyad</f:facet>
+						<h:outputText value="#{cls.yazar.soyad}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</f:view>
+</body> 
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<f:view>
+		<ui:insert name="navbar">
+			<ui:include src="/template/navbar.xhtml" />
+		</ui:insert>
+		<br />
+		<br />
+		<h:form>
+		
+		
+			<h:commandButton action="#{mudurView.kaydet()}" value="Kaydet" />
+			<br />
+
+			<p:dataTable value="#{mudurView.mudurliste}" var="cls">
+				<f:facet name="header">Kayıt Listesi</f:facet>
+
+				<p:column>
+					<f:facet name="header">Müdür Adı</f:facet>
+					<h:outputText value="#{cls.mudurAd}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">Müdür Soyad</f:facet>
+					<h:outputText value="#{cls.mudurSoyad}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">Bolge</f:facet>
+					<h:outputText value="#{cls.bolge}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+	</f:view>
+</body>
+</html>

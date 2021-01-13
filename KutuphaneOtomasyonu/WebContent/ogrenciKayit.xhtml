@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<div class="container">
+		<ui:insert name="navbar">
+			<ui:include src="/template/navbar.xhtml" />
+		</ui:insert>
+		<br /><br />
+		<f:view>
+			<h:form>
+				<p:panelGrid columns="2" >
+					Ad:<h:inputText value="#{ogrenciView.ogrenciKayit.ad}" />				
+					Soyad:<h:inputText value="#{ogrenciView.ogrenciKayit.soyad}" />
+					İl:<h:inputText value="#{ogrenciView.ogrenciKayit.adres.il}" />
+					İlce:<h:inputText value="#{ogrenciView.ogrenciKayit.adres.ilce}" />
+					Mail:<h:inputText value="#{ogrenciView.ogrenciKayit.mail}" />
+					Yaş:<h:inputText value="#{ogrenciView.ogrenciKayit.yas}" />
+					Tarih:<p:calendar value="#{ogrenciView.ogrenciKayit.suankitarih}"/>
+					
+					
+					<h:commandButton action="#{ogrenciView.kaydet()}" value="Kaydet" rendered="#{ogrenciView.ogrenciKayit.ad==null}"/>
+					<h:commandButton action="#{ogrenciView.duzenle()}" value="Güncelle" rendered="#{ogrenciView.ogrenciKayit.ad!=null}"/>
+					<h:commandButton action="#{ogrenciView.anasayfa()}" value="Geri Dön" />
+					
+				</p:panelGrid>
+				<br />
+
+				<p:dataTable value="#{ogrenciView.kayitListesi}" var="cls">
+					<f:facet name="header">Kayıt Listesi</f:facet>
+					<p:column>
+						<f:facet name="header">İşlemler</f:facet>
+						<h:commandButton action="#{ogrenciView.sil()}" value="Sil">
+							<f:setPropertyActionListener value="#{cls}"
+								target="#{ogrenciView.ogrenciKayit}" />
+						</h:commandButton>
+						<h:commandButton value="Seç">
+							<f:setPropertyActionListener value="#{cls}"
+								target="#{ogrenciView.ogrenciKayit}" />
+						</h:commandButton>
+					</p:column>
+					<p:column>
+						<f:facet name="header">Ad</f:facet>
+						<h:outputText value="#{cls.ad}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">Soyad</f:facet>
+						<h:outputText value="#{cls.soyad}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">İl</f:facet>
+						<h:outputText value="#{cls.adres.il}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">İlçe</f:facet>
+						<h:outputText value="#{cls.adres.ilce}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">E-Mail</f:facet>
+						<h:outputText value="#{cls.mail}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">Yaş</f:facet>
+						<h:outputText value="#{cls.yas}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">Tarih</f:facet>
+						<h:outputText value="#{cls.suankitarih}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</f:view>
+	</div>
+</body>
+</html>
