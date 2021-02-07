@@ -1,1 +1,1 @@
-JSF kullanarak JPA' da yapılan küçük çaplı eğitim amaçlı bir projedir.
+JSF,JPA ve Spring Framework' te yaptığım uygulama ve çalışmalar.
